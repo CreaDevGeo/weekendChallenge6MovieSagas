@@ -1,5 +1,6 @@
 // - IMPORTS -
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useDispatch } from "react-redux";
 // Components
 import Details from "../Details/Details";
 
@@ -8,14 +9,23 @@ import Details from "../Details/Details";
 function MovieItem({ movie }) {
   // * Declaring useHistory as a variable
   const history = useHistory();
+ 
+  // * Declaring useDispatch as a variable
+  const dispatch = useDispatch();
 
   // * Function to send user to details page
   const handleMovieClick = () => {
     console.log("Movie was clicked!");
 
+    /* Dispatch an action that sets the movieItem redux state to
+     movie that was clicked */
+    dispatch({
+      type: "SET_MOVIE_DETAILS",
+      payload: movie
+    });
+
     // Send user to Details component with movie object as prop
     history.push("/details");
-    // <Details key={movie.id} movie={movie}/>
   }; // * end handleMovieClick
 
   // - RENDERING -
