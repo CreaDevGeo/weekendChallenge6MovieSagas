@@ -52,6 +52,8 @@ const genres = (state = [], action) => {
     }
 }
 
+// Reducer state to set the movie of the image that was clicked
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({

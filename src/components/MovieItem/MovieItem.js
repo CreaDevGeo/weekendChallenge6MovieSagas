@@ -13,6 +13,9 @@ function MovieItem({ movie }) {
   const handleMovieClick = () => {
     console.log("Movie was clicked!");
 
+    /* Dispatch an action that sets the movieItem redux state to
+     movie that was clicked */
+
     // Send user to Details component with movie object as prop
     history.push("/details");
     // <Details key={movie.id} movie={movie}/>

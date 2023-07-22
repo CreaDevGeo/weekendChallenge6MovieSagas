@@ -16,6 +16,7 @@ function App() {
 
         {/* Details page */}
         {/* May need to add an id? */}
+        {/* Constant movieItem Redux state */}
         <Route path="/details" exact>
           <Details />
         </Route>
