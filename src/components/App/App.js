@@ -1,10 +1,14 @@
 // - IMPORTS -
 import {HashRouter as Router, Route} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './App.css';
 import MovieList from '../MovieList/MovieList'
 import Details from '../Details/Details';
 
 function App() {
+  // * Declaring movieDetails reducer state
+  const movieDetails = useSelector((store) => store.movieDetails);
+
   // - RENDERING -
   return (
     <div className="App">
@@ -17,7 +21,7 @@ function App() {
         {/* Details page */}
         {/* May need to add an id? */}
         {/* Constant movieItem Redux state */}
-        <Route path="/details" exact>
+        <Route path="/details">
           <Details />
         </Route>
 
