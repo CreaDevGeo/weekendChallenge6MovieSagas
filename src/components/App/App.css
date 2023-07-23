@@ -1,7 +1,15 @@
-.App {
-  text-align: center;
+/* Fonts: Unbound Font; Weight: Bold 700, Regular 400; Lumanosimo Font;  */
+@import url("https://fonts.googleapis.com/css2?family=Lumanosimo&family=Unbounded:wght@400;700&display=swap");
+
+body {
+  width: 100%;
+  margin: 0 auto;
 }
 
+.App {
+  text-align: center;
+  margin: 0 auto;
+}
 
 .App-header {
   background-color: #222;
@@ -18,7 +26,40 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+header {
+  display: flex;
+  background-color: black;
+  color: white;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  gap: 9rem;
+  padding: 0 20px;
+}
+
+li {
+  list-style: none;
+  font-family: "Unbounded", cursive;
+  font-size: 1.3rem;
+}
+
+ul {
+  display: flex;
+  gap: 7rem;
+}
+
+h1 {
+  width: 16%;
+  color: #dcfd7a;
+  text-decoration: none;
+  font-family: "Unbounded", cursive;
+  font-size: 1.8rem;
+  padding-right: 20px;
+  line-height: 26px;
+  text-align: left;
+  border-right: solid white 3px;
+}
+a {
+  color: #dcfd7a;
+  text-decoration: none;
 }
