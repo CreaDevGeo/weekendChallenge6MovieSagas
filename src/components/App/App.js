@@ -1,35 +1,37 @@
 // - IMPORTS -
-import {HashRouter as Router, Route} from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import './App.css';
-import MovieList from '../MovieList/MovieList'
-import Details from '../Details/Details';
+import { HashRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useSelector } from "react-redux";
+import "./App.css";
+import MovieList from "../MovieList/MovieList";
+import Details from "../Details/Details";
 
 function App() {
-  // * Declaring movieDetails reducer state
-  const movieDetails = useSelector((store) => store.movieDetails);
 
   // - RENDERING -
   return (
+    <Router>
     <div className="App">
       <h1>The Movies Saga!</h1>
-      <Router>
+      <nav>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+      </nav>
+      
         <Route path="/" exact>
           <MovieList />
         </Route>
 
         {/* Details page */}
-        {/* May need to add an id? */}
-        {/* Constant movieItem Redux state */}
         <Route path="/details">
           <Details />
         </Route>
 
         {/* Add Movie page */}
-      </Router>
     </div>
+      </Router>
   );
 }
-
 
 export default App;
