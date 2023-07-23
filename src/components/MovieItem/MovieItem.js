@@ -24,6 +24,12 @@ function MovieItem({ movie }) {
       payload: movie
     });
 
+    /* Dispatch an action with movie title to make GET request of movie genre */
+    dispatch({
+      type: "FETCH_MOVIE_GENRE",
+      payload: movie.title,
+    });
+
     // Send user to Details component with movie object as prop
     history.push("/details");
   }; // * end handleMovieClick
@@ -31,7 +37,7 @@ function MovieItem({ movie }) {
   // - RENDERING -
   return (
     <div key={movie.id}>
-      <h3>{movie.title}</h3>
+      <h3 onClick={handleMovieClick}>{movie.title}</h3>
       <img onClick={handleMovieClick} src={movie.poster} alt={movie.title} />
     </div>
   );

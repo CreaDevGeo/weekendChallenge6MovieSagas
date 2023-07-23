@@ -15,16 +15,32 @@ import axios from "axios";
 // * Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery("FETCH_MOVIES", fetchAllMovies);
+  yield takeEvery("FETCH_MOVIE_GENRE", fetchMovieGenre);
 }
 
 // * Gen function to get all movies from the DB
 function* fetchAllMovies() {
   try {
-    const movies = yield axios.get("/api/movie");
-    console.log("get all:", movies.data);
+    const movies = yield axios.get("/movie-saga/movie");
+    console.log("GET all movies:", movies.data);
     yield put({ type: "SET_MOVIES", payload: movies.data });
   } catch {
-    console.log("get all error");
+    console.log("\nError getting all movies.");
+  }
+}
+
+// * Gen function to get all movies from the DB
+function* fetchMovieGenre(action) {
+  try {
+    // Declaring movie title as payload
+    const movieTitle = action.payload
+    // Declaring response as movie genres
+    const movieGenre = yield axios.get(`/movie-saga/genres/${movieTitle}`);
+    console.log("GET all movie genres:", movieGenre.data);
+    // Dispatch action to send genres as a payload to genres reducer
+    yield put({ type: "SET_GENRES", payload: movieGenre.data });
+  } catch {
+    console.log("\nError getting movie genres.");
   }
 }
 
@@ -42,7 +58,7 @@ const movies = (state = [], action) => {
 };
 
 // * Used to store the movie genres
-const genres = (state = [], action) => {
+const movieGenres = (state = [], action) => {
   switch (action.type) {
     case "SET_GENRES":
       return action.payload;
@@ -51,7 +67,7 @@ const genres = (state = [], action) => {
   }
 };
 
-// * Used to set the movie object for display on Details component
+// * Used to set the movie object for display on 'Details' component
 const movieDetails = (state = {}, action) => {
   switch (action.type) {
     case "SET_MOVIE_DETAILS":
@@ -65,7 +81,7 @@ const movieDetails = (state = {}, action) => {
 const storeInstance = createStore(
   combineReducers({
     movies,
-    genres,
+    movieGenres,
     movieDetails,
   }),
   // Add sagaMiddleware to our store
