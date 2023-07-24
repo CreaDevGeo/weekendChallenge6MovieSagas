@@ -1,4 +1,8 @@
 .movies {
     display : flex;
     flex-wrap: wrap;
+    margin: 0 auto;
+    align-items: flex-end;
+    justify-content: baseline;
+    gap: 30px;
 }

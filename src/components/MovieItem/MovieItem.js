@@ -1,6 +1,14 @@
 // - IMPORTS -
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch } from "react-redux";
+// Material UI
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 // Components
 import Details from "../Details/Details";
 
@@ -9,7 +17,7 @@ import Details from "../Details/Details";
 function MovieItem({ movie }) {
   // * Declaring useHistory as a variable
   const history = useHistory();
- 
+
   // * Declaring useDispatch as a variable
   const dispatch = useDispatch();
 
@@ -21,7 +29,7 @@ function MovieItem({ movie }) {
      movie that was clicked */
     dispatch({
       type: "SET_MOVIE_DETAILS",
-      payload: movie
+      payload: movie,
     });
 
     /* Dispatch an action with movie title to make GET request of movie genre */
@@ -36,9 +44,28 @@ function MovieItem({ movie }) {
 
   // - RENDERING -
   return (
-    <div key={movie.id}>
-      <h3 onClick={handleMovieClick}>{movie.title}</h3>
-      <img onClick={handleMovieClick} src={movie.poster} alt={movie.title} />
+    <div key={movie.id} className="movieItems">
+      <Card sx={{ width: 235, maxHeight: 500 }}>
+        <CardMedia
+          sx={{ height: 350 }}
+          image={movie.poster}
+          onClick={handleMovieClick}
+          title={movie.title}
+        />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            onClick={handleMovieClick}
+          >
+            {movie.title}
+          </Typography>
+        </CardContent>
+        {/* <CardActions>
+          <Button size="small">Favorite</Button>
+        </CardActions> */}
+      </Card>
     </div>
   );
 } // - END MovieItem COMPONENT -

@@ -1,5 +1,3 @@
-/** @format */
-
 // - IMPORTS -
 import { useSelector } from "react-redux";
 
@@ -17,22 +15,22 @@ function Details() {
 
   // - RENDERING -
   return (
-    <div>
-    {/* Movie */}
-      <h2>{movieDetails.title}</h2>
-
+    <div className="movieDetailsContainer">
+      {/* Movie */}
       <img src={movieDetails.poster} />
+
+      <h2>{movieDetails.title}</h2>
 
       <p>{movieDetails.description}</p>
 
-    {/* Movie Genres */}
+      {/* Movie Genres */}
       <h3>Genres</h3>
       {movieGenres.map((genre) => {
-        return <p key={genre}>{genre}</p>
+        return <p key={genre}>{genre}</p>;
       })}
     </div>
   );
 } // - END Details COMPONENT -
 
-// * Exporting MovieList Component
+// * Exporting Details Component
 export default Details;

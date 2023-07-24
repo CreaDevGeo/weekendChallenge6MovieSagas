@@ -17,7 +17,7 @@ function MovieList() {
   // - RENDERING -
   return (
     <main>
-      <h2>MovieList</h2>
+      <h2 className='headers'>Movies</h2>
       <section className="movies">
         {movies.map((movie) => {
           return <MovieItem key={movie.id} movie={movie} />;
