@@ -1,6 +1,7 @@
 //  - IMPORTING -
 import '../App/App.css' 
 
+
 // - MovieItem COMPONENT -
 // Rendering the hero section on the home function
 function HeroSection() {
