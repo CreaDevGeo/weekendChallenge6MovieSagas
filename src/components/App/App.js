@@ -3,8 +3,10 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react-redux";
 import "./App.css";
+// Components
 import MovieList from "../MovieList/MovieList";
 import Details from "../Details/Details";
+import HeroSection from "../HeroSection/HeroSection";
 
 function App() {
   // - RENDERING -
@@ -32,15 +34,9 @@ function App() {
       <div className="App">
         <main>
           <section className="hero-section">
-            <h1 className="hero-fonts">
-              <span className="hero-font1">
-                TRUE
-                <br />
-                CINEMA
-              </span>{" "}
-              <br />
-              <span className="hero-font2">BEGINS HERE</span>
-            </h1>
+            <Route path="/" exact>
+              <HeroSection />
+            </Route>
           </section>
 
           <section>
