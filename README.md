@@ -144,5 +144,3 @@ Upon completing the React-Redux with Redux-Sagas project, the following develope
 - Invested time in styling the application for improved visual appeal.
 - Maintained a well-structured codebase with frequent commits and clear comments.
 - Demonstrated proficiency in React, Redux, Redux-Sagas, and database setup.
-
-These accomplishments reflect the successful expansion of the movie management application and the application of web development best practices.
